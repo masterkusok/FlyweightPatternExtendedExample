@@ -12,7 +12,8 @@ namespace FlyweightPictureExample.ImageInsertProcessor
 
         protected override void CreateNeccessaryContext()
         {
-            _imageContexts.Add(new NonFlyweightContext(_img, _lastX, _lastY));
+            _imageContexts.Add(new NonFlyweightContext(Image.FromFile($"{Directory.GetCurrentDirectory()}/pochita.png"),
+                _lastX, _lastY));
         }
     }
 }

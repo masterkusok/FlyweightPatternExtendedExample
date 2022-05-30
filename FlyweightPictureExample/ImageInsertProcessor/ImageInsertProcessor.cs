@@ -13,6 +13,9 @@ namespace FlyweightPictureExample.ImageInsertProcessor
 
         protected List<ImageContext> _imageContexts;
 
+        private long _firstMemoryUsePoint;
+        public long LastCreationMemoryUse { get; set; }
+
         public ImageInsertProcessor(Graphics g, Image img)
         {
             _g = g;
@@ -23,7 +26,9 @@ namespace FlyweightPictureExample.ImageInsertProcessor
         public void InsertImage(MouseEventArgs e)
         {
             FindClickedCoordinate(e);
+            StartCountingMemoryUse();
             CreateNeccessaryContext();
+            StopCountingMemoryUse();
             DrawAllImages();
         }
 
@@ -42,6 +47,16 @@ namespace FlyweightPictureExample.ImageInsertProcessor
             {
                 context.Draw(_g);
             }
+        }
+
+        private void StartCountingMemoryUse()
+        {
+            _firstMemoryUsePoint = GC.GetTotalMemory(true);
+        }
+
+        private void StopCountingMemoryUse()
+        {
+            LastCreationMemoryUse = GC.GetTotalMemory(true) - _firstMemoryUsePoint;
         }
 
     }

@@ -28,12 +28,16 @@ namespace FlyweightPictureExample
         {
             _flyweightProcessor.InsertImage(e);
             FlyweightPictureBox.Image = _flyweightPicBoxBitmap;
+
+            RAMUsageInfoTextBox.Text = $"Flyweight image creation took {_flyweightProcessor.LastCreationMemoryUse} bytes";
         }
 
         private void NonFlyweightPictureBox_Click(object sender, MouseEventArgs e)
         {
             _nonFlyweightProcessor.InsertImage(e);
             NonFlyweightPictureBox.Image = _nonFlyweightPicBoxBitmap;
+
+            RAMUsageInfoTextBox.Text = $"Heavy-weight image creation took {_nonFlyweightProcessor.LastCreationMemoryUse} bytes";
         }
 
 

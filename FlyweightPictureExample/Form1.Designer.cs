@@ -57,6 +57,7 @@
             // 
             this.RAMUsageInfoTextBox.Location = new System.Drawing.Point(26, 12);
             this.RAMUsageInfoTextBox.Name = "RAMUsageInfoTextBox";
+            this.RAMUsageInfoTextBox.ReadOnly = true;
             this.RAMUsageInfoTextBox.Size = new System.Drawing.Size(809, 27);
             this.RAMUsageInfoTextBox.TabIndex = 2;
             // 

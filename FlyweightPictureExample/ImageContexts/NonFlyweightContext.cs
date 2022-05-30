@@ -13,7 +13,8 @@ namespace FlyweightPictureExample.ImageContexts
         public NonFlyweightContext(Image img, int X, int Y)
         {
             _img = img;
-            X = X;
+            this.X = X;
+            this.Y = Y;
         }
 
         public override void Draw(Graphics g)
